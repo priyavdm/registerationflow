@@ -24,7 +24,7 @@ export class UserService {
   }
   async getlogindata(email: any) {
 
-    return this.userRepository.findOne({where: {email:email,isVerified:true}, select:['id','name','email','password','gender','otp']});
+    return this.userRepository.findOne({where: {email:email,isVerified:true}, select:['id','name','email','password','gender','otp','isVerified']});
   }
 
   async update(email:string, otp: any) {
