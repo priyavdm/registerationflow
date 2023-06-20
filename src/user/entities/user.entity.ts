@@ -46,6 +46,12 @@ export class User {
     @Column({ default:false })
     isVerified: boolean;
 
+    @Column({ default: 0})
+    loginCount: number;
+
+    @Column({ default: null})
+    lastLogin: string;
+
     }
 
 

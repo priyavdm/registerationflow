@@ -24,7 +24,7 @@ export class UserService {
   }
   async getlogindata(email: any) {
 
-    return this.userRepository.findOne({where: {email:email,isVerified:true}, select:['id','name','email','password','gender','otp','isVerified']});
+    return this.userRepository.findOne({where: {email:email,isVerified:true}, select:['id','name','email','password','gender','otp','isVerified','loginCount','lastLogin']});
   }
 
   async update(email:string, otp: any) {
@@ -45,6 +45,12 @@ export class UserService {
 
   async updatepassword(id:any,password:any){
     return this.userRepository.update(id,{password});
+  }
+  async logincount(id:any,loginCount:any){
+    return this.userRepository.update(id,{loginCount});
+  }
+  async updatelogintime(id:any,lastLogin:any){
+    return this.userRepository.update(id,{lastLogin});
   }
 
   
